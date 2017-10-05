@@ -1,25 +1,30 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.scss';
-import App from './App';
+import './styles/app.css';
 import registerServiceWorker from './registerServiceWorker';
+//history
+import createHistory from 'history/createBrowserHistory';
+//saga
+import createSagaMiddleware from 'redux-saga';
+// redux
+import { Provider } from 'react-redux';
+import { store } from './store/store'
 // react router deps
-import {
-    BrowserRouter as Router,
-    Route,
-    Link
-} from 'react-router-dom'
+import { Router, Route, BrowserRouter } from 'react-router-dom'
 // pages
 import Login from './pages/login/login'
 import Home from './pages/home/home'
 
 const router = (
-    <Router>
-        <div>
-            <Route exact path="/" component={Home}/>
-            <Route path="/login" component={Login}/>
-        </div>
-    </Router>
+    <Provider store={store}>
+        <BrowserRouter>
+            <div>
+                <Route exact path="/" component={Home}/>
+                <Route path="/login" component={Login}/>
+            </div>
+        </BrowserRouter>
+    </Provider>
 )
+
 ReactDOM.render(router, document.getElementById('root'));
 registerServiceWorker();

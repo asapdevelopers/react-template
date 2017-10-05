@@ -1,0 +1,2 @@
+export const VIDEO_ADD_COMMENT = 'VIDEO_ADD_COMMENT';
+export const VIDEO_ADD_LIKE = 'VIDEO_ADD_LIKE';
