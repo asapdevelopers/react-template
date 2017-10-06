@@ -24,9 +24,9 @@ class Login extends PureComponent {
     };
 
     onSubmit = () => {
-        debugger;
         const { username, password } = this.state;
-        this.props.dispatch(authorize(username, password));
+        this.props.authorize(username, password);
+        //this.store.dispatch(authorize(username, password));
     };
 
     render() {

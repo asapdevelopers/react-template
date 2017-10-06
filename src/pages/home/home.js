@@ -15,7 +15,7 @@ const Home = ({ videos, auth, videoActions }) => (
             </div>
             )} 
         </div>
-        <Link to="/login">Logout</Link>       
+        <Link to="/login">Logout</Link> 
     </div>
 )
 
