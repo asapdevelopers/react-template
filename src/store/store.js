@@ -4,9 +4,10 @@ import { routerMiddleware } from 'react-router-redux';
 import createHistory from 'history/createBrowserHistory';
 //saga
 import createSagaMiddleware from 'redux-saga';
+import AuthSaga from './sagas/authSaga';
 // import root reducer
 import rootReducer from './reducers/index';
-import AuthSaga from './sagas/authSaga';
+
 
 // create middlewares
 const history = createHistory();

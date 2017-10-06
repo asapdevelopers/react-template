@@ -25,16 +25,15 @@ class Login extends PureComponent {
 
     onSubmit = () => {
         const { username, password } = this.state;
-        this.props.authorize(username, password);
-        //this.store.dispatch(authorize(username, password));
+        this.props.authActions.authorize(username, password);
     };
 
     render() {
-        const { error, token } = this.props;
+        const { error, token } = this.props.auth;
 
-        if (token) {
+        /*if (token) {
             return <Redirect to="/" />;
-        }
+        }*/
 
         return (
             <div className="Login">              
@@ -42,7 +41,7 @@ class Login extends PureComponent {
                 <div className="form">
                     <input type="text" placeholder="Username" value={this.state.username} onChange={(event)=> this.setState({"username": event.target.value})} />      
                     <input type="text" placeholder="Password" value={this.state.password} onChange={(event)=> this.setState({"password": event.target.value})} />
-                    <CustomButton onClick={this.onSubmit} label="Login" primary={true}>Login</CustomButton>
+                    <CustomButton onClick={this.onSubmit.bind(this)} label="Login" primary={true}>Login</CustomButton>
                 </div>
             </div>
         );
