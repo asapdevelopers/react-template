@@ -6,7 +6,7 @@ const environments = {
 };
 
 const currentEnvironment = environments[0];
-const apiVersion = 1
+//const apiVersion = 1
 
 // Server URL
 var apiURL;
@@ -32,5 +32,8 @@ export const api = {
     userauth: {
         authenticate: apiURL + "userauth/authenticate/",
         register: apiURL + "userauth/register/"
+    },
+    photos:{
+        list: "http://jsonplaceholder.typicode.com/albums/1/photos"
     }
 }

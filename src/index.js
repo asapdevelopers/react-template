@@ -2,25 +2,25 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './styles/app.css';
 import registerServiceWorker from './registerServiceWorker';
-//history
-import createHistory from 'history/createBrowserHistory';
-//saga
-import createSagaMiddleware from 'redux-saga';
 // redux
 import { Provider } from 'react-redux';
-import { store } from './store/store'
+import { store } from './store/store';
 // react router deps
-import { Router, Route, BrowserRouter } from 'react-router-dom'
+import { Route, BrowserRouter } from 'react-router-dom';
 // pages
-import Login from './pages/login/login'
-import Home from './pages/home/home'
+import LoginPage from './pages/login/LoginPage';
+import HomePage from './pages/home/HomePage';
+import ProfilePage from './pages/profile/ProfilePage';
+import RegisterPage from './pages/register/RegisterPage';
 
 const router = (
     <Provider store={store}>
         <BrowserRouter>
             <div>
-                <Route exact path="/" component={Home}/>
-                <Route path="/login" component={Login}/>
+                <Route exact path="/" component={HomePage}/>
+                <Route path="/login" component={LoginPage}/>
+                <Route path="/profile" component={ProfilePage}/>
+                <Route path="/register" component={RegisterPage}/>
             </div>
         </BrowserRouter>
     </Provider>
