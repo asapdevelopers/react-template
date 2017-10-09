@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import './CustomButton.css';
+import './Button.css';
 
-export class CustomButton extends React.Component {
+export class Button extends Component {
 
     rootClassNames() {
         let names = ['btn'];
@@ -20,7 +20,7 @@ export class CustomButton extends React.Component {
     }
 }
 
-CustomButton.defaultProps = {
+Button.defaultProps = {
     primary: true,
     secondary: false,
     flat: false

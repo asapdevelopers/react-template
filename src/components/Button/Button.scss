@@ -1,0 +1,36 @@
+@import '../../styles/variables';
+
+.btn {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 100;
+    border-radius: 25px;
+    border: none;
+    padding: 8px 20px;
+    text-align: center;
+    font-size: 14px;
+    margin-top: 4px;
+    cursor: pointer;
+    width: 100%;
+
+    &:focus {
+        outline: none;
+    }
+
+    &.btn-primary {
+        background-color: $color1;
+        border: 1px solid $color1;
+        color: white;
+    }
+
+    &.btn-secondary {
+        background-color: $color2;
+        border: 1px solid $color2;
+        color: white;
+    }
+
+    &.btn-flat {
+        background-color: white;
+        color: $color1;
+        border: 1px solid $color1;
+    }
+}
