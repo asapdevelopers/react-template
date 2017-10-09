@@ -5,6 +5,7 @@ import createHistory from 'history/createBrowserHistory';
 //saga
 import createSagaMiddleware from 'redux-saga';
 import AuthSaga from './sagas/authSaga';
+import PhotosSaga from './sagas/photosSaga';
 // import root reducer
 import rootReducer from './reducers/index';
 
@@ -18,30 +19,25 @@ const middleware = applyMiddleware(
     sagaMiddleware
 );
 
+let authData = {};
+if (localStorage.auth) {
+    authData = JSON.parse(localStorage.auth);
+}
 
 const defaultState = {
     auth: {
-        token: localStorage.getItem('token'),
-        error: null
+        token: authData.token,
+        error: null,
+        registration: false,
+        email: authData.email,
+        first_name: authData.first_name,
+        last_name: authData.last_name,
     },
-    videos: [{
-            id: 1,
-            title: "Test 1",
-            comments: ["hola mundo"],
-            likes: 5
-        },
-        {
-            id: 2,
-            title: "Test 2",
-            comments: ["hola mundo"],
-            likes: 10
-        }
-    ]
+    photos: []
 };
 
 // Use Redux devtools
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-
 const enhancer = composeEnhancers(middleware);
 
 // Create the store
@@ -49,3 +45,4 @@ export const store = createStore(rootReducer, defaultState, enhancer);
 
 // Run saga middleware
 sagaMiddleware.run(AuthSaga);
+sagaMiddleware.run(PhotosSaga);

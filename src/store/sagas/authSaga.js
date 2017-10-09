@@ -11,9 +11,9 @@ function* authorize({ payload: { username, password } }) {
     };
 
     try {
-        const { token } = yield call(fetchJSON, api.userauth.authenticate, options);
-        yield put({ type: authActions.AUTH_SUCCESS, payload: token });
-        localStorage.setItem('token', token);
+        const { token, email, first_name, last_name } = yield call(fetchJSON, api.userauth.authenticate, options);
+        yield put({ type: authActions.AUTH_REQUEST_SUCCESS, payload: { token, email, first_name, last_name } });
+        localStorage.setItem('auth', JSON.stringify({ token, email, first_name, last_name }));
     } catch (error) {
         let message;
         switch (error.status) {
@@ -29,13 +29,43 @@ function* authorize({ payload: { username, password } }) {
             default:
                 message = 'Something went wrong';
         }
-        yield put({ type: authActions.AUTH_FAILURE, payload: message });
+        yield put({ type: authActions.AUTH_REQUEST_FAILURE, payload: message });
         localStorage.removeItem('token');
     }
 }
 
+function* register({ payload: { username, password, first_name, last_name } }) {
+    const options = {
+        body: JSON.stringify({ email: username, password, first_name, last_name }),
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' }
+    };
+
+    try {
+        yield call(fetchJSON, api.userauth.register, options);
+        yield put({ type: authActions.AUTH_REGISTER_SUCCESS });
+    } catch (error) {
+        console.log("Error", error);
+        let message;
+        switch (error.status) {
+            case 500:
+                message = 'Internal Server Error';
+                break;
+            case 400:
+                message = 'Validation error';
+                break;
+            default:
+                message = 'Something went wrong';
+        }
+        yield put({ type: authActions.AUTH_REGISTER_FAILURE, payload: message });
+    }
+}
+
 function* AuthSaga() {
-    yield takeLatest(authActions.AUTH_REQUEST, authorize);
+    yield [
+        takeLatest(authActions.AUTH_REQUEST, authorize),
+        takeLatest(authActions.AUTH_REGISTER, register)
+    ]
 }
 
 export default AuthSaga;
