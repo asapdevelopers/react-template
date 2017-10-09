@@ -1,0 +1,13 @@
+@import '../../styles/variables';
+
+.header {
+    background-color: $color1;
+
+    .username {
+        color: $white2;
+    }
+
+    .link{
+         color: $white2;
+    }
+}

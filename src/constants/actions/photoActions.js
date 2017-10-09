@@ -1,0 +1,7 @@
+// Get photos
+export const PHOTO_GET_LIST = 'PHOTO_GET_LIST';
+export const PHOTO_GET_LIST_SUCCESS = 'PHOTO_GET_LIST_SUCCESS';
+export const PHOTO_GET_LIST_FAILURE = 'PHOTO_GET_LIST_FAILURE';
+
+// Add like
+export const PHOTO_ADD_LIKE = 'PHOTO_ADD_LIKE';
