@@ -21,7 +21,7 @@ class HomePage extends Component {
             return (
                 <div className="App">  
                     <Header onLogout={this.props.authActions.logout} username={auth.first_name}/>
-                    <h1>Photos</h1>      
+                    <h2 className="ml-3">Home</h2>      
                     <div className="videoList d-flex flex-wrap justify-content-around">
                         {photos.map(item => (
                             <div key={item.id} className="card-container mt-5"><Card id={item.id} title={item.title} url={item.url} likes={item.likes} onLike={photoActions.like}/>

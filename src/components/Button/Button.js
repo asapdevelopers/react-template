@@ -12,9 +12,10 @@ export class Button extends Component {
     }
 
     render() {
+        const {onClick, type, children} = this.props;
         return (
-            <button className={this.rootClassNames()} onClick={this.props.onClick}>
-                {this.props.children}
+            <button type={type} className={this.rootClassNames()} onClick={onClick}>
+                {children}
             </button>
         );
     }
@@ -23,5 +24,6 @@ export class Button extends Component {
 Button.defaultProps = {
     primary: true,
     secondary: false,
-    flat: false
+    flat: false,
+    type: "button"
 };

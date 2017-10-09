@@ -20,6 +20,7 @@ export const handleError = (status) => {
             message = 'Invalid credentials';
             break;
         default:
+            console.log("Error ", status)
             message = 'Something went wrong';
     }
     return message;

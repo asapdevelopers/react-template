@@ -1,6 +1,6 @@
 import { call, put, takeLatest } from 'redux-saga/effects';
 import * as authActions from '../../constants/actions/authActions';
-import { fetchJSON } from './utils';
+import { fetchJSON, handleError } from './utils';
 import { api } from '../../configuration';
 
 function* authorize({ payload: { username, password } }) {
@@ -13,22 +13,11 @@ function* authorize({ payload: { username, password } }) {
     try {
         const { token, email, first_name, last_name } = yield call(fetchJSON, api.userauth.authenticate, options);
         yield put({ type: authActions.AUTH_REQUEST_SUCCESS, payload: { token, email, first_name, last_name } });
+        debugger;
         localStorage.setItem('auth', JSON.stringify({ token, email, first_name, last_name }));
     } catch (error) {
-        let message;
-        switch (error.status) {
-            case 500:
-                message = 'Internal Server Error';
-                break;
-            case 401:
-                message = 'Invalid credentials';
-                break;
-            case 403:
-                message = 'Invalid credentials';
-                break;
-            default:
-                message = 'Something went wrong';
-        }
+        debugger;
+        let message = handleError(error.status);        
         yield put({ type: authActions.AUTH_REQUEST_FAILURE, payload: message });
         localStorage.removeItem('token');
     }

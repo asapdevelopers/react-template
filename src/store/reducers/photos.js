@@ -16,7 +16,6 @@ function photosReducer(state = [], { type, payload }) {
             }
         case photoActions.PHOTO_ADD_LIKE:
             {
-                debugger;
                 let index = state.findIndex(x => x.id === payload.id);
                 if (index !== -1) {
                     return [
