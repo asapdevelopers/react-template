@@ -1,39 +1,46 @@
+// CRA variable
+// When you run npm start, it is always equal to 'development'
+// When you run npm test it is always equal to 'test'
+// When you run npm run build to make a production bundle, it is always equal to 'production'
+const currentEnvironment = process.env.NODE_ENV;
+
+// apiVersion is used to consume different apis according to the project version
+const apiVersion = 1;
+
 const environments = {
-    development: 0,
-    testing: 1,
-    demo: 2,
-    production: 3
+  development: "development",
+  test: "test",
+  demo: "production"
 };
 
-const currentEnvironment = environments[0];
-//const apiVersion = 1
-
 // Server URL
-var apiURL;
+var apiUrl;
+
 switch (currentEnvironment) {
-    case environments.development:
-        apiURL = "http://localhost:8000/api/";
-        break;
-    case environments.testing:
-        apiURL = "http://localhost:8000/api/";
-        break;
-    case environments.demo:
-        apiURL = "http://localhost:8000/api/";
-        break;
-    case environments.production:
-        apiURL = "http://localhost:8000/api/";
-        break;
-    default:
-        apiURL = "http://localhost:8000/api/";
+  case environments.development:
+    apiUrl = "http://localhost:8888/api/";
+    break;
+  case environments.testing:
+    apiUrl = "http://testing.asapdevelopers.com/api/";
+    break;
+  case environments.production:
+    apiUrl = "http://production.asapdevelopers.com/api/";
+    break;
+  default:
+    apiUrl = "http://localhost:8888/api/";
 }
 
 // Api
 export const api = {
-    userauth: {
-        authenticate: apiURL + "userauth/authenticate/",
-        register: apiURL + "userauth/register/"
-    },
-    photos:{
-        list: "http://jsonplaceholder.typicode.com/albums/1/photos"
-    }
-}
+  userauth: {
+    authenticate: apiUrl + "userauth/authenticate/",
+    register: apiUrl + "userauth/register/"
+  },
+  github: {
+    list: "https://api.github.com/search/repositories?q=topic:react&sort=stars&order=desc"
+  }
+};
+
+export const configuration = {
+  api
+};

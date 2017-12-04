@@ -5,7 +5,7 @@ import createHistory from 'history/createBrowserHistory';
 //saga
 import createSagaMiddleware from 'redux-saga';
 import AuthSaga from './sagas/authSaga';
-import PhotosSaga from './sagas/photosSaga';
+import GithubSaga from './sagas/githubSaga';
 // import root reducer
 import rootReducer from './reducers/index';
 
@@ -33,7 +33,7 @@ const defaultState = {
         first_name: authData.first_name,
         last_name: authData.last_name,
     },
-    photos: []
+    github: []
 };
 
 // Use Redux devtools
@@ -45,4 +45,4 @@ export const store = createStore(rootReducer, defaultState, enhancer);
 
 // Run saga middleware
 sagaMiddleware.run(AuthSaga);
-sagaMiddleware.run(PhotosSaga);
+sagaMiddleware.run(GithubSaga);

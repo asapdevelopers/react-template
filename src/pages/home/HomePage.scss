@@ -1,3 +1,13 @@
-.card-container{
-    width: 220px;
+.card-container {
+  width: 220px;
+}
+.videoList {
+  &:last-child {
+    flex-grow: 0;
+  }
+}
+.card{
+    h4{
+        word-wrap: break-word;
+    }
 }

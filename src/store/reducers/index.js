@@ -1,13 +1,13 @@
-import { combineReducers } from 'redux';
-import { routerReducer } from 'react-router-redux';
+import { combineReducers } from "redux";
+import { routerReducer } from "react-router-redux";
 
-import photos from './photos';
-import auth from './auth';
+import github from "./github";
+import auth from "./auth";
 
 const rootReducer = combineReducers({
-    photos,
-    auth,
-    routing: routerReducer
+  github,
+  auth,
+  routing: routerReducer
 });
 
 export default rootReducer;

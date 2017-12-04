@@ -1,0 +1,78 @@
+#codedWithLove {
+  p {
+    color: white;
+  }
+  a {
+    color: white;
+  }
+  .code{
+      margin-right:18px !important;
+  }
+  .code,
+  .heart {
+    display: inline-block;
+    height: 0.75rem;
+    margin: 0 0.75rem;
+    position: relative;
+    width: 0.75rem;
+
+    &::before,
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+    }
+  }
+
+  .code {
+    border: 0.125rem solid royalblue;
+
+    transform: translateY(0.0625rem) scale(1.33) rotate(45deg);
+
+    &::before,
+    &::after {
+      height: 0.375rem;
+      width: 0.375rem;
+
+      background-color: #2a9d8f;
+    }
+
+    &::before {
+      top: -0.16rem;
+      left: -0.16rem;
+    }
+
+    &::after {
+      right: -0.16rem;
+      bottom: -0.16rem;
+    }
+  }
+
+  .heart {
+    border-radius: 7.5%;
+
+    background-color: currentColor;
+
+    color: tomato;
+
+    transform: translateY(0.125rem) scale(0.9) rotate(-45deg);
+
+    &::before,
+    &::after {
+      height: 100%;
+      width: 100%;
+
+      border-radius: 100%;
+
+      background-color: currentColor;
+    }
+
+    &::before {
+      transform: translateY(-50%);
+    }
+
+    &::after {
+      transform: translateX(50%);
+    }
+  }
+}

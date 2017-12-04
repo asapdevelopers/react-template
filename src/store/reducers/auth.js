@@ -27,6 +27,7 @@ const authReducer = (state = initialState, { type, payload }) => {
             }
         case authActions.AUTH_REGISTER_FAILURE:
             {
+                alert(payload);
                 return { ...state }
             }
         default:
