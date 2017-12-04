@@ -14,7 +14,6 @@ export class Login extends Component {
   }
 
   login = e => {
-    debugger;
     e.preventDefault();
     const { username, password } = this.state;
     this.props.onLogin(username, password);

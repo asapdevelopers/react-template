@@ -13,7 +13,6 @@ function* authorize({ payload: { username, password } }) {
     try {
         const { token, email, first_name, last_name } = yield call(fetchJSON, api.userauth.authenticate, options);
         yield put({ type: authActions.AUTH_REQUEST_SUCCESS, payload: { token, email, first_name, last_name } });
-        debugger;
         localStorage.setItem('auth', JSON.stringify({ token, email, first_name, last_name }));
     } catch (error) {
         let message = handleError(error.status);

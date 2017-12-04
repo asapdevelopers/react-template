@@ -17,7 +17,6 @@ export const fetchJSON = (url, options = {}) =>
   });
 
 export const handleError = status => {
-  debugger;
   let message = "";
   switch (status) {
     case 500:
