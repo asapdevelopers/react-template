@@ -1,13 +1,13 @@
 Template created by [asapdevelopers](https:www.asapdevelopers.com) using [Create React App](https://github.com/facebookincubator/create-react-app).
 
 The template includes:
- * A react application
- * Auth functions: Login and register
- * Redux integration to manage the application store
- * Redux-saga integration to handle asynchronous requests
- * React-router integration to handle multiple routes
- * React-icons integration
- * It supports SCSS, after every change the styles are compiled to css
+  - A react application
+  - Auth functions: Login and register
+  - Redux integration to manage the application store
+  - Redux-saga integration to handle asynchronous requests
+  - React-router integration to handle multiple routes
+  - React-icons integration
+  - It supports SCSS, after every change the styles are compiled to css
 
 # Table of Contents
 
