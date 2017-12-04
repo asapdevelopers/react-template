@@ -10,7 +10,6 @@ import { Route, BrowserRouter } from 'react-router-dom';
 // pages
 import LoginPage from './pages/login/LoginPage';
 import HomePage from './pages/home/HomePage';
-import ProfilePage from './pages/profile/ProfilePage';
 import RegisterPage from './pages/register/RegisterPage';
 
 const router = (
@@ -19,7 +18,6 @@ const router = (
             <div>
                 <Route exact path="/" component={HomePage}/>
                 <Route path="/login" component={LoginPage}/>
-                <Route path="/profile" component={ProfilePage}/>
                 <Route path="/register" component={RegisterPage}/>
             </div>
         </BrowserRouter>
