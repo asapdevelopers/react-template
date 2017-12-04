@@ -8,6 +8,7 @@ The template includes:
   - React-router integration to handle multiple routes
   - React-icons integration
   - It supports SCSS, after every change the styles are compiled to css
+  - It uses [Django-rest-framework-template](https://github.com/asapdevelopers/django-rest-framework-template) as Backend
 
 # Table of Contents
 
